@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     ],
     modules: [
         '@nuxtjs/color-mode',
+        'dayjs'
     ],
     colorMode: {
         classSuffix: ""
@@ -32,7 +33,7 @@ export default defineNuxtConfig({
         'plyr/dist/plyr.css'
     ],
     build: {
-        transpile: ['primevue', 'dayjs', 'dayjs/plugin/utc']
+        transpile: ['primevue']
     },
     googleFonts: {
         downloaded: true,

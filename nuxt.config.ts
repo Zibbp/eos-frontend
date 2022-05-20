@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         'plyr/dist/plyr.css'
     ],
     build: {
-        transpile: ['primevue']
+        transpile: ['primevue', 'dayjs', 'dayjs/plugin/utc']
     },
     googleFonts: {
         downloaded: true,

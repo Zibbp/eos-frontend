@@ -20,6 +20,20 @@
               v-on:keyup.enter="search"
             />
           </span>
+          <Button
+            v-if="videoStore.displayRandomVideos"
+            v-tooltip.bottom="'Hide Random Videos'"
+            icon="pi pi-angle-double-left"
+            class="p-button-rounded p-button-secondary p-button-text"
+            @click="toggleRandomVideos()"
+          />
+          <Button
+            v-if="!videoStore.displayRandomVideos"
+            v-tooltip.bottom="'Show Random Videos'"
+            icon="pi pi-angle-double-right"
+            class="p-button-rounded p-button-secondary p-button-text"
+            @click="toggleRandomVideos()"
+          />
         </template>
       </Menubar>
     </div>
@@ -28,9 +42,15 @@
 </template>
 
 <script setup>
+import { useVideoStore } from "~/store/videos";
 import Menubar from "primevue/menubar";
 import InputText from "primevue/inputtext";
-const router = useRouter();
+
+const videoStore = useVideoStore();
+
+const toggleRandomVideos = () => {
+  videoStore.displayRandomVideos = !videoStore.displayRandomVideos;
+};
 
 const items = ref([
   {

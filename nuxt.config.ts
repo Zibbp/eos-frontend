@@ -13,6 +13,12 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         '@pinia/nuxt'
     ],
+    modules: [
+        '@nuxtjs/color-mode',
+    ],
+    colorMode: {
+        classSuffix: ""
+    },
     components: {
         dirs: [
             `~/components`

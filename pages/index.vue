@@ -10,7 +10,7 @@
           >
             <div class="tw-text-center">
               <h1
-                class="tw-max-w-5xl tw-text-2xl tw-font-bold tw-leading-none tw-tracking-tighter tw-text-neutral-800 md:tw-text-5xl lg:tw-text-6xl lg:tw-max-w-7xl"
+                class="tw-max-w-5xl tw-text-2xl tw-font-bold tw-leading-none tw-tracking-tighter tw-text-neutral-800 dark:tw-text-white md:tw-text-5xl lg:tw-text-6xl lg:tw-max-w-7xl"
               >
                 Watch Your Evergrowing <br class="tw-hidden lg:tw-block" />
                 YouTube Archive

@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class',
   prefix: 'tw-',
   important: true,
   content: [],

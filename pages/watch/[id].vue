@@ -5,7 +5,7 @@
     <div class="tw-grid tw-grid-cols-12 tw-gap-1">
       <div
         :class="[
-          displayRandomVideos
+          videoStore.displayRandomVideos
             ? 'tw-col-span-10 2xl:tw-col-span-10 xl:tw-col-span-10 lg:tw-col-span-12 md:tw-col-span-12 sm:tw-col-span-12'
             : 'tw-col-span-12 2xl:tw-col-span-12 xl:tw-col-span-12 lg:tw-col-span-12 md:tw-col-span-12 sm:tw-col-span-12',
         ]"
@@ -19,7 +19,7 @@
         />
       </div>
       <div
-        v-if="displayRandomVideos"
+        v-if="videoStore.displayRandomVideos"
         class="tw-mx-auto tw-h-fit tw-col-span-2 2xl:tw-col-span-2 xl:tw-col-span-2 lg:tw-col-span-12 md:tw-col-span-12 sm:tw-col-span-12"
       >
         <VideoRandomVideos :id="video.video.id" />
@@ -40,6 +40,8 @@ definePageMeta({
   },
 });
 
+const videoStore = useVideoStore();
+
 const config = useRuntimeConfig().public;
 const route = useRoute();
 
@@ -50,9 +52,6 @@ onMounted(() => {
 const { data: video } = await useFetch(
   `${config.apiURL}/videos/${route.params.id}`
 );
-
-const videoStore = useVideoStore();
-const displayRandomVideos = videoStore.displayRandomVideos;
 </script>
 
 <style lang="scss" scoped></style>

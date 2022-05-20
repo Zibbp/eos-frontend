@@ -7,8 +7,11 @@ export const useVideoStore = defineStore({
             displayRandomVideos: true
         }
     },
-    actions: {},
+    actions: {
+        toggleRandomVideos() {
+            this.displayRandomVideos = !this.displayRandomVideos
+        }
+    },
     getters: {
-
     }
 })

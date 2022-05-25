@@ -58,8 +58,8 @@
 
 <script setup>
 import Skeleton from "primevue/skeleton";
-import * as dayjs from "dayjs";
-import * as utc from "dayjs/plugin/utc";
+import dayjs from "dayjs/esm";
+import utc from "dayjs/esm/plugin/utc";
 const config = useRuntimeConfig().public;
 
 dayjs.extend(utc);

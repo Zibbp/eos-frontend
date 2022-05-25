@@ -135,7 +135,7 @@
 </template>
 
 <script setup>
-import dayjs from "dayjs";
+import dayjs from "dayjs/esm";
 
 const showStats = ref(false);
 

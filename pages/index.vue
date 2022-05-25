@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="tw-bg-blue-500 dark:tw-bg-red-500">DEMO</div>
     <section class="tw-w-full">
       <div
         class="tw-relative tw-items-center tw-w-full tw-px-5 tw-py-12 tw-mx-auto md:tw-px-12 lg:tw-px-16 tw-max-w-7xl lg:tw-py-24"

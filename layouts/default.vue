@@ -34,6 +34,28 @@
             class="p-button-rounded p-button-secondary p-button-text"
             @click="toggleRandomVideos()"
           />
+
+          <Button
+            v-if="colorMode.preference == 'dark'"
+            @click="colorMode.preference = 'light'"
+            v-tooltip.bottom="'Switch to Light Mode'"
+            icon="pi pi-moon"
+            class="p-button-text p-button-rounded p-button-secondary"
+          />
+          <Button
+            v-if="colorMode.preference == 'light'"
+            @click="colorMode.preference = 'system'"
+            v-tooltip.bottom="'Switch to System Mode'"
+            icon="pi pi-sun"
+            class="p-button-text p-button-rounded p-button-secondary"
+          />
+          <Button
+            v-if="$colorMode.preference == 'system'"
+            @click="$colorMode.preference = 'dark'"
+            v-tooltip.bottom="'Switch to Dark Mode'"
+            icon="pi pi-desktop"
+            class="p-button-text p-button-rounded p-button-secondary"
+          />
         </template>
       </Menubar>
     </div>
@@ -45,6 +67,8 @@
 import { useVideoStore } from "~/store/videos";
 import Menubar from "primevue/menubar";
 import InputText from "primevue/inputtext";
+import Button from "primevue/button";
+const colorMode = useColorMode();
 
 const videoStore = useVideoStore();
 

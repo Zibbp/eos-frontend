@@ -15,10 +15,12 @@ export default defineNuxtConfig({
     ],
     modules: [
         '@nuxtjs/color-mode',
-        'dayjs'
+        'dayjs',
+        '@nuxtjs/color-mode'
     ],
     colorMode: {
-        classSuffix: ""
+        classPrefix: 'tw-',
+        classSuffix: '',
     },
     components: {
         dirs: [

@@ -78,4 +78,7 @@ const search = async () => {
 .p-inputtext {
   width: 25rem;
 }
+.p-paginator {
+  background: none;
+}
 </style>

@@ -64,4 +64,8 @@ const onPage = async (event) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.p-paginator {
+  background: none;
+}
+</style>

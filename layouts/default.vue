@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-bg-eos-grey-100 tw-min-h-screen">
+  <div class="tw-bg-eos-grey-100 dark:tw-bg-eos-grey-999 tw-min-h-screen">
     <div class="tw-container tw-mx-auto tw-drop-shadow">
       <Menubar :model="items" class="eos-menubar">
         <template #start>
@@ -18,43 +18,38 @@
               type="text"
               v-model="searchQuery"
               v-on:keyup.enter="search"
+              class="dark:tw-bg-eos-grey-950 dark:tw-border-none"
             />
           </span>
           <Button
             v-if="videoStore.displayRandomVideos"
             v-tooltip.bottom="'Hide Random Videos'"
             icon="pi pi-angle-double-left"
-            class="p-button-rounded p-button-secondary p-button-text"
+            class="p-button-rounded p-button-secondary p-button-text dark:tw-text-eos-grey-400"
             @click="toggleRandomVideos()"
           />
           <Button
             v-if="!videoStore.displayRandomVideos"
             v-tooltip.bottom="'Show Random Videos'"
             icon="pi pi-angle-double-right"
-            class="p-button-rounded p-button-secondary p-button-text"
+            class="p-button-rounded p-button-secondary p-button-text dark:tw-text-eos-grey-400"
             @click="toggleRandomVideos()"
           />
 
           <Button
+            v-if="
+              colorMode.preference == 'light' ||
+              colorMode.preference == 'system'
+            "
+            @click="colorMode.preference = 'dark'"
+            icon="pi pi-moon"
+            class="p-button-text p-button-rounded p-button-secondary dark:tw-text-eos-grey-400"
+          />
+          <Button
             v-if="colorMode.preference == 'dark'"
             @click="colorMode.preference = 'light'"
-            v-tooltip.bottom="'Switch to Light Mode'"
-            icon="pi pi-moon"
-            class="p-button-text p-button-rounded p-button-secondary"
-          />
-          <Button
-            v-if="colorMode.preference == 'light'"
-            @click="colorMode.preference = 'system'"
-            v-tooltip.bottom="'Switch to System Mode'"
             icon="pi pi-sun"
-            class="p-button-text p-button-rounded p-button-secondary"
-          />
-          <Button
-            v-if="$colorMode.preference == 'system'"
-            @click="$colorMode.preference = 'dark'"
-            v-tooltip.bottom="'Switch to Dark Mode'"
-            icon="pi pi-desktop"
-            class="p-button-text p-button-rounded p-button-secondary"
+            class="p-button-text p-button-rounded p-button-secondary dark:tw-text-eos-grey-400"
           />
         </template>
       </Menubar>
@@ -105,7 +100,11 @@ const search = async () => {
 <style lang="scss" scoped>
 .p-menubar {
   border: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background: none;
 }
+
 ::v-deep(.eos-menubar) {
   .p-menubar-start img {
     height: 40px;

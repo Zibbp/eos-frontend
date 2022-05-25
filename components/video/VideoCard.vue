@@ -30,7 +30,7 @@
           <div class="tw-py-1 tw-text-center">
             <p
               :title="props.video.title"
-              class="tw-block tw-text-sm tw-font-bold tw-text-gray-800 tw-text-left video-title dark:tw-text-gray-100 tw-line-clamp-2"
+              class="tw-block tw-text-sm tw-font-bold tw-text-gray-800 tw-text-left video-title dark:tw-text-eos-grey-200 tw-line-clamp-2"
               v-tooltip.top="props.video.title"
             >
               {{ props.video.title }}
@@ -38,12 +38,12 @@
 
             <div class="">
               <p
-                class="tw-text-sm tw-text-gray-700 dark:tw-text-ytd-200 tw-text-left"
+                class="tw-text-sm tw-text-gray-700 dark:tw-text-ytd-200 tw-text-left dark:tw-text-eos-grey-500"
               >
                 {{ props.video.channel }}
               </p>
               <p
-                class="tw-text-sm tw-text-gray-700 dark:tw-text-ytd-200 tw-text-left"
+                class="tw-text-sm tw-text-gray-700 dark:tw-text-ytd-200 tw-text-left dark:tw-text-eos-grey-500"
               >
                 {{ numFormatter(props.video.view_count) }} views •
                 {{ dayjs(props.video.upload_date).format("YYYY/MM/DD") }}

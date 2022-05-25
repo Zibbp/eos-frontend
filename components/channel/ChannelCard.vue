@@ -3,7 +3,7 @@
     :to="'/channels/' + props.channel.name"
     class="no-underline tw-text-center"
   >
-    <Card class="channel-card text-center">
+    <Card class="channel-card text-center dark:tw-bg-eos-grey-950">
       <template #header>
         <img
           class="xl:channel-card-image tw-rounded-t-lg"
@@ -12,7 +12,7 @@
         />
       </template>
       <template #title
-        ><div class="tw-text-neutral-700">
+        ><div class="tw-text-neutral-700 dark:tw-text-eos-grey-400">
           {{ props.channel.name }}
         </div></template
       >

@@ -101,7 +101,7 @@
         </span>
       </span>
     </div>
-    <div v-if="showStats" class="tw-mb-2 tw-text-sm">
+    <div v-if="showStats" class="tw-mb-2 tw-text-sm dark:tw-text-eos-grey-400">
       <ul>
         <li>
           <span class="tw-font-bold">Upload Date:</span>

@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="props.video.comment_count"
-      class="tw-text-xl tw-font-bold tw-mt-2"
+      class="tw-text-xl tw-font-bold tw-mt-2 dark:tw-text-eos-grey-200"
     >
       {{ props.video.comment_count.toLocaleString() }} Comments
     </div>

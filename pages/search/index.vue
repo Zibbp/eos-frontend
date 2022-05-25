@@ -1,14 +1,5 @@
 <template>
   <div class="tw-container tw-mx-auto">
-    <div>
-      <h1>Color mode: {{ $colorMode.value }}</h1>
-      <select v-model="$colorMode.preference">
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="sepia">Sepia</option>
-      </select>
-    </div>
     <div class="tw-mx-auto tw-content-center tw-w-96 tw-mt-4">
       <span class="p-input-icon-left">
         <i class="pi pi-search" />

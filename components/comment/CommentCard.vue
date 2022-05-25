@@ -4,7 +4,7 @@
       <div class="tw-flex-1 tw-py-1">
         <strong
           v-if="!props.comment.author_is_uploader"
-          class="tw-text-base tw-font-semibold"
+          class="tw-text-base tw-font-semibold dark:tw-text-eos-grey-200"
           >{{ props.comment.author }}</strong
         >
         <strong
@@ -15,12 +15,10 @@
         <span class="tw-ml-2 tw-text-xs tw-text-gray-400">{{
           dayjs.unix(props.comment.timestamp).format("YYYY/MM/DD")
         }}</span>
-        <p class="tw-text-base">
+        <p class="tw-text-base dark:tw-text-eos-grey-300">
           {{ props.comment.text }}
         </p>
-        <div
-          class="tw-mt-1 tw-flex tw-text-gray-500 dartw-k:text-true-gray-400"
-        >
+        <div class="tw-mt-1 tw-flex tw-text-gray-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="tw-h-4 tw-w-4"

@@ -2,14 +2,15 @@
   <div>
     <div class="tw-flex">
       <div class="tw-flex-1 tw-py-1">
-        <strong class="tw-text-base tw-font-semibold">{{
-          props.reply.author
-        }}</strong>
+        <strong
+          class="tw-text-base tw-font-semibold dark:tw-text-eos-grey-200"
+          >{{ props.reply.author }}</strong
+        >
 
         <span class="tw-ml-2 tw-text-xs tw-text-gray-400">{{
           dayjs.unix(props.reply.timestamp).format("YYYY/MM/DD")
         }}</span>
-        <p class="tw-text-base">
+        <p class="tw-text-base dark:tw-text-eos-grey-300">
           {{ props.reply.text }}
         </p>
         <div

@@ -1,5 +1,5 @@
 <template>
-  <div class="-tw-mt-1 tw-bg-eos-grey-200">
+  <div class="-tw-mt-1 tw-bg-eos-grey-200 dark:tw-bg-eos-grey-950">
     <div class="tw-container tw-mx-auto">
       <div class="tw-flex tw-justify-between tw-items-center tw-py-4 tw-px-16">
         <div class="tw-flex tw-items-center">
@@ -16,18 +16,20 @@
             >
               <span class="mr-2">{{ props.channel.name }}</span>
             </div>
-            <p class="tw-mt-2 tw-font-hairline tw-text-sm dark:tw-text-ytd-200">
+            <p
+              class="tw-mt-2 tw-font-hairline tw-text-sm dark:tw-text-ytd-200 dark:tw-text-eos-grey-400"
+            >
               {{ channelVideoCount.toLocaleString() }} videos
             </p>
           </div>
         </div>
       </div>
       <div class="tw-px-16">
-        <ul class="tw-list-reset tw-flex">
+        <ul class="tw-list-reset tw-flex dark:tw-text-eos-grey-500">
           <li
             class="tw-text-center tw-py-3 tw-px-8 tw-border-b-2 tw-border-solid tw-border-grey-dark"
           >
-            <a href="#" c> Videos </a>
+            <a href="#"> Videos </a>
           </li>
           <li class="tw-text-center tw-py-3 tw-px-8">
             <a href="#" class="hover:tw-text-black"> Playlists </a>
@@ -38,11 +40,8 @@
           <li class="tw-text-center tw-py-3 tw-px-8">
             <a href="#" class="hover:tw-text-black"> Channels </a>
           </li>
-          <li class="tw-text-center tw-py-3 tw-px-8">
+          <li class="tw-text-center tw-py-3">
             <a href="#" class="hover:tw-text-black"> About </a>
-          </li>
-          <li class="tw-text-center tw-py-3 tw-px-8">
-            <i class="fa fa-search fa-lg text-grey-dark"></i>
           </li>
         </ul>
       </div>

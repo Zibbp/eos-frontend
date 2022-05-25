@@ -1,6 +1,6 @@
 <template>
   <div
-    class="lg:tw-w-1/2 tw-whitespace-pre-wrap"
+    class="lg:tw-w-1/2 tw-whitespace-pre-wrap dark:tw-text-eos-grey-300"
     v-html="formattedDescription"
   ></div>
 </template>

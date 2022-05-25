@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-bg-eos-grey-100 tw-h-fit">
+  <div class="tw-bg-eos-grey-100 tw-min-h-screen">
     <div class="tw-container tw-mx-auto tw-drop-shadow">
       <Menubar :model="items" class="eos-menubar">
         <template #start>

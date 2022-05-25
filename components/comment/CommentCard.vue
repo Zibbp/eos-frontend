@@ -99,7 +99,7 @@
 </template>
 
 <script setup>
-import dayjs from "dayjs";
+import dayjs from "dayjs/esm";
 const props = defineProps({
   comment: {
     type: Object,

@@ -4,8 +4,8 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
     runtimeConfig: {
         public: {
-            apiURL: process.env.API_URL,
-            cdnURL: process.env.CDN_URL
+            apiURL: '',
+            cdnURL: ''
         }
     },
     buildModules: [

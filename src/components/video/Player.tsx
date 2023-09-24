@@ -11,8 +11,8 @@ import classes from './Player.module.css';
 const VideoPlayer = ({ id, video_path, thumbnail_path, edges, caption_path, title }: Video) => {
   const player = useRef<MediaPlayerElement>(null);
 
-  if (edges && edges.chapters) {
-    useEffect(() => {
+  useEffect(() => {
+    if (edges && edges.chapters) {
       fetch(`/api/chapters/${id}`, {
         method: "POST",
         headers: {
@@ -22,8 +22,8 @@ const VideoPlayer = ({ id, video_path, thumbnail_path, edges, caption_path, titl
       }).then(res => res.json()).then(res => {
         console.log(res)
       })
-    }, [])
-  }
+    }
+  }, [])
 
   return (
     <div className={classes.playerContainer}>

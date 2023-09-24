@@ -6,3 +6,7 @@
     box-shadow: var(--mantine-shadow-sm);
   }
 }
+.link {
+  text-decoration: none;
+  color: inherit;
+}

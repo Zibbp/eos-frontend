@@ -1,0 +1,16 @@
+.description {
+  white-space: pre-wrap;
+  margin-top: rem(8);
+  & a {
+    color: var(--mantine-color-blue-5);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  & span {
+    color: var(--mantine-color-blue-5);
+    cursor: pointer;
+  }
+}

@@ -23,7 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={inter.className}>
         <TanstackProvider>
-          <MantineProvider defaultColorScheme='dark'>
+          <MantineProvider defaultColorScheme='dark'
+            theme={{
+              fontFamily: inter.style.fontFamily,
+            }}
+          >
             <HeaderSearch />
             {children}
           </MantineProvider>

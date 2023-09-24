@@ -10,7 +10,7 @@ const ChannelCard = ({ name, image_path }: Channel) => {
   const image_url = `${process.env.NEXT_PUBLIC_CDN_URL}${encodeURIComponent(image_path)}`
 
   return (
-    <Link href={`/channels/${name}`}>
+    <Link className={classes.link} href={`/channels/${name}`}>
       <Card className={classes.card} shadow="sm" padding="lg" radius="md" >
         <Card.Section>
           <Image

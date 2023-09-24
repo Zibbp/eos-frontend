@@ -1,0 +1,36 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+.bottomRow {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.channel {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+.spacer {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  font-weight: 700;
+}
+.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.likeIconParent {
+  display: flex;
+  margin-right: 0.5rem;
+}
+.likeIcon {
+  padding-bottom: 0.2rem;
+}
+.infoItem {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}

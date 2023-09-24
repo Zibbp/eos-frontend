@@ -3,3 +3,31 @@
   text-decoration: none;
   border-radius: rem(5px);
 }
+.durationBadge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.infoBar {
+  display: flex;
+}
+.infoBarRight {
+  margin-left: auto;
+  order: 2;
+}
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 200ms ease-out;
+}
+.imageHover {
+  display: block;
+  transform: scale(1.05);
+  transform-origin: 50% 50%;
+}
+.outerImage {
+  overflow: hidden;
+}

@@ -1,0 +1,22 @@
+.comment {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.likeIcon {
+  padding-bottom: 0.2rem;
+}
+.showReplies {
+  display: flex;
+  color: var(--mantine-color-blue-4);
+  cursor: pointer;
+  width: fit-content;
+}
+.replyIcon {
+  padding-bottom: 0.3rem;
+}
+.reply {
+  margin-left: 2rem;
+}
+.date {
+  color: var(--mantine-color-gray-5);
+}

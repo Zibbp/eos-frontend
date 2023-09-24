@@ -13,16 +13,19 @@
     "@mantine/hooks": "^7.0.0",
     "@tabler/icons-react": "^2.34.0",
     "@tanstack/react-query": "^4.35.3",
-    "@types/node": "20.6.2",
+    "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
+    "@vidstack/react": "^0.6.13",
     "axios": "^1.5.0",
+    "dayjs": "^1.11.10",
     "eslint": "8.49.0",
-    "eslint-config-next": "13.5.1",
-    "next": "13.5.1",
+    "eslint-config-next": "13.5.2",
+    "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "vidstack": "^0.6.13"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.34.1",

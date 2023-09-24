@@ -1,5 +1,6 @@
 import VideoLayout from '@/components/channel/VideoLayout'
 import { Channel } from '@/interfaces'
+import { Center, Container, Title } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { useRouter } from 'next/router'
@@ -21,10 +22,14 @@ const ChannelPage = async ({ params }: { params: { name: string } }) => {
 
   return (
     <div>
-      <div>{channel.name}</div>
-      <div>
-        <VideoLayout channel={channel} />
-      </div>
+      <Container size="xl" px="xl" fluid={true}>
+        <Center mb="sm">
+          <Title>{channel.name}</Title>
+        </Center>
+        <div>
+          <VideoLayout channel={channel} />
+        </div>
+      </Container>
     </div>
   )
 }

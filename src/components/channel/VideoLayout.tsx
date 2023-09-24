@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import VideoCard from '../video/VideoCard'
+import Link from 'next/link'
 
 async function getVideos(channelId: string, page: number, limit: number) {
   return await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/videos?limit=${limit}&offset=${(page - 1) * limit
@@ -59,7 +60,9 @@ const VideoLayout = ({ channel }: { channel: Channel }) => {
           <Grid>
             {data.data.map((video: any) => (
               <Grid.Col key={video.id} span={{ md: 6, lg: 2 }}>
-                <VideoCard  {...video} />
+                <Link href={`/videos/${video.id}`} style={{ textDecoration: "none" }}>
+                  <VideoCard  {...video} />
+                </Link>
               </Grid.Col>
             ))}
           </Grid>

@@ -1,0 +1,6 @@
+.playerContainer {
+  --media-max-height: 87vh;
+}
+.playerMediaOutlet {
+  --media-max-height: 87vh;
+}

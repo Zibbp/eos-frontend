@@ -35,4 +35,32 @@ export interface Video {
   path: string;
   created_at: string;
   updated_at: string;
+  edges: VideoEdge;
+}
+
+export interface VideoEdge {
+  channel: Channel;
+  chapters: Chapter[];
+}
+
+export interface Chapter {
+  id: string;
+  title: string;
+  start_time: number;
+  end_time: number;
+}
+
+export interface Comment {
+  id: string;
+  text: string;
+  timestamp: string;
+  like_count: number;
+  is_favorited: boolean;
+  author: string;
+  author_id: string;
+  author_thumbnail: string;
+  author_is_uploader: boolean;
+  parent: string;
+  video_id: string;
+  replies: Comment[];
 }

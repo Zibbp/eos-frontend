@@ -1,9 +1,12 @@
 "use client"
-import { Autocomplete, Group, Burger, rem, Image } from '@mantine/core';
+import { Autocomplete, Group, Burger, rem, Image, TextInput } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconSearch } from '@tabler/icons-react';
 import classes from './Header.module.css';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'
+
 
 const links = [
   { link: '/', label: 'Home' },
@@ -12,6 +15,8 @@ const links = [
 
 export function HeaderSearch() {
   const [opened, { toggle }] = useDisclosure(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const router = useRouter()
 
   const items = links.map((link) => (
     <Link
@@ -22,6 +27,13 @@ export function HeaderSearch() {
       {link.label}
     </Link>
   ));
+
+  const submitSearch = () => {
+    if (searchTerm.length > 0) {
+      router.push(`/search?q=${searchTerm}`)
+      setSearchTerm('')
+    }
+  }
 
   return (
     <header className={classes.header}>
@@ -35,12 +47,18 @@ export function HeaderSearch() {
           <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">
             {items}
           </Group>
-          <Autocomplete
+          <TextInput
             className={classes.search}
             placeholder="Search"
             leftSection={<IconSearch style={{ width: rem(16), height: rem(16) }} stroke={1.5} />}
-            data={['React', 'Angular', 'Vue', 'Next.js', 'Riot.js', 'Svelte', 'Blitz.js']}
             visibleFrom="xs"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.currentTarget.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                submitSearch()
+              }
+            }}
           />
         </Group>
       </div>

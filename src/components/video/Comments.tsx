@@ -15,7 +15,7 @@ const VideoComments = ({ id, comment_count }: Video) => {
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState<number>(30)
   const [total, setTotal] = useState(1)
-  const comments = useRef(null)
+  const comments = useRef<HTMLHeadingElement>(null)
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["comments", id, page, limit],

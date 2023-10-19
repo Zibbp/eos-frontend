@@ -8,12 +8,13 @@ import React, { ReactNode, useState } from 'react'
 
 
 async function getChannel(name: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/channels/name/${name}`)
-  if (!res.ok) {
-    throw new Error(`Error fetching channel`)
+  try {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/channels/name/${name}`)
+    return res.data as Channel
+  } catch (e) {
+    console.error(e)
+    throw new Error(`Error fetching channel: ${e}`)
   }
-
-  return res.json() as Promise<Channel>
 }
 
 const ChannelPage = async ({ params }: { params: { name: string } }) => {

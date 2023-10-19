@@ -33,6 +33,7 @@ export interface Video {
   json_path: string;
   caption_path: string;
   path: string;
+  thumbnails_path: string;
   created_at: string;
   updated_at: string;
   edges: VideoEdge;

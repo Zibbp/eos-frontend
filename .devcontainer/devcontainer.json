@@ -5,7 +5,7 @@
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
   "features": {},
-  "runArgs": ["--network=host"]
+  "runArgs": ["--network=container:9dbbe5e1b61017778ac238815439be8a8af44ba2700fb3e94385bc9975e833e1"]
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},

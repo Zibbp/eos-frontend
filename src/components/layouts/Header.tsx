@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation'
 
 const links = [
   { link: '/', label: 'Home' },
-  { link: '/channels', label: 'Channels' }
 ];
 
 export function HeaderSearch() {

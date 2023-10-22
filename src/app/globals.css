@@ -1,4 +1,0 @@
-media-community-skin[data-video] {
-  /* remove the gray overlay when mousing over video */
-  --video-scrim-bg: none;
-}

@@ -9,10 +9,66 @@ import classes from './Player.module.css';
 import { MediaPlayer, MediaPlayerInstance, MediaProvider, Poster, Track } from '@vidstack/react';
 import { defaultLayoutIcons, DefaultVideoLayout } from '@vidstack/react/player/layouts/default';
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
-const VideoPlayer = ({ id, video_path, thumbnail_path, edges, caption_path, title, thumbnails_path }: Video) => {
+const VideoPlayer = ({ id, video_path, thumbnail_path, edges, caption_path, title, thumbnails_path, duration }: Video) => {
   const ref = useRef<MediaPlayerInstance>(null)
   const [thumbnailsBlobUrl, setThumbnailsBlobUrl] = React.useState("")
+
+  // Fetch playback data
+  const { data } = useQuery({
+    refetchOnWindowFocus: false,
+    staleTime: Infinity,
+    queryKey: ["playback", id],
+    queryFn: () => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/playback/${id}`).then((res) => res.data),
+  })
+
+  // set playback data
+  useEffect(() => {
+    if (!ref.current) {
+      return
+    }
+
+    if (data) {
+      ref.current.currentTime = data.timestamp
+    }
+  }, [data, ref])
+
+  // update playback data
+  useEffect(() => {
+    const playbackInterval = setInterval(async () => {
+
+      if (!ref.current) {
+        return
+      }
+
+      try {
+        await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/playback/${id}`, {
+          timestamp: Math.floor(ref.current.currentTime),
+          status: "in_progress"
+        })
+      } catch (e) {
+        console.error(e)
+        throw new Error(`Error updating playback: ${e}`)
+      }
+
+
+      if (ref.current.currentTime / duration > 0.95) {
+        // video is 95% complete
+        try {
+          await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/playback/${id}`, {
+            timestamp: Math.floor(ref.current.currentTime),
+            status: "finished"
+          })
+          clearInterval(playbackInterval)
+        } catch (e) {
+          console.error(e)
+          throw new Error(`Error updating playback: ${e}`)
+        }
+      }
+    }, 10000)
+    return () => clearInterval(playbackInterval)
+  })
 
   useEffect(() => {
     if (edges && edges.chapters) {

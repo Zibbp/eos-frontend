@@ -20,7 +20,6 @@ const VideoComments = ({ id, comment_count }: Video) => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["comments", id, page, limit],
     queryFn: () => getComments(id, page, limit),
-    keepPreviousData: true,
   })
 
   // Update the total page count when data changes

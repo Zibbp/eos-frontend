@@ -35,7 +35,6 @@ const SearchPage = (props: Props) => {
   const { data, error, isLoading, isError, isFetching } = useQuery({
     queryKey: ["videos-search", searchTerm, page, limit],
     queryFn: () => getVideos(searchTerm, page, limit),
-    keepPreviousData: true,
   })
 
   // Update the total page count when data changes
@@ -50,7 +49,7 @@ const SearchPage = (props: Props) => {
         {isLoading ? (
           <div>Loading...</div>
         ) : isError ? (
-          <div>Error: {error as React.ReactNode}</div>
+          <div>Error: {error.message}</div>
         ) : (
           <div>
             <Grid>

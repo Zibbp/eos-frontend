@@ -26,7 +26,6 @@ const VideoLayout = ({ channel }: { channel: Channel }) => {
   const { data, error, isLoading, isError, isFetching } = useQuery({
     queryKey: ["videos", channel.id, page, limit],
     queryFn: () => getVideos(channel.id, page, limit),
-    keepPreviousData: true,
   })
 
   // Update the total page count when data changes
@@ -54,7 +53,7 @@ const VideoLayout = ({ channel }: { channel: Channel }) => {
       {isLoading ? (
         <div>Loading...</div>
       ) : isError ? (
-        <div>Error: {error as React.ReactNode}</div>
+        <div>Error: {error.message}</div>
       ) : (
         <div>
           <Grid>

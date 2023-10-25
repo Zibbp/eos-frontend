@@ -48,6 +48,12 @@ const VideoLayout = ({ channel }: { channel: Channel }) => {
     isLoaded(true)
   }, [searchParams, isLoaded])
 
+  // get playback data
+  const { data: playbackData } = useQuery({
+    queryKey: ["playback-data"],
+    queryFn: () => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/playback`).then((res) => res.data),
+  })
+
   return (
     <div>
       {isLoading ? (
@@ -60,7 +66,7 @@ const VideoLayout = ({ channel }: { channel: Channel }) => {
             {data.data.map((video: any) => (
               <Grid.Col key={video.id} span={{ md: 6, lg: 2 }}>
                 <Link href={`/videos/${video.id}`} style={{ textDecoration: "none" }}>
-                  <VideoCard  {...video} />
+                  <VideoCard  {...video} playbackData={playbackData} />
                 </Link>
               </Grid.Col>
             ))}

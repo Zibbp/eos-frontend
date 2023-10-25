@@ -1,11 +1,12 @@
-import { Video } from '@/interfaces'
+import { Video, PlaybackData } from '@/interfaces'
 import React, { useEffect, useState } from 'react'
-import { Card, Image, Text, Badge, Button, Group, Tooltip, AspectRatio } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, Tooltip, AspectRatio, Progress, ThemeIcon } from '@mantine/core';
 import classes from './VideoCard.module.css';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import duration from "dayjs/plugin/duration";
 import { useHover } from '@mantine/hooks';
+import { IconCircleCheck } from '@tabler/icons-react';
 dayjs.extend(duration);
 dayjs.extend(utc)
 
@@ -19,20 +20,29 @@ const numFormatter = (num: number) => {
   }
 };
 
-const VideoCard = ({ title, thumbnail_path, duration, upload_date, view_count }: Video) => {
+const VideoCard = ({ id, title, thumbnail_path, duration, upload_date, view_count, playbackData }: Video & { playbackData: PlaybackData[] }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const { hovered, ref } = useHover();
+  const [watched, setWatched] = useState(false);
+  const [watchedPercent, setWatchedPercent] = useState(0);
+
+  // Set watched and watchedPercent
+  useEffect(() => {
+    if (!playbackData) return
+    const playback: PlaybackData | undefined = playbackData.find((p) => p.video_id === id)
+    if (!playback) return
+    if (playback.status == "finished") {
+      setWatched(true)
+    }
+    const progress = playback.timestamp / duration * 100
+    setWatchedPercent(progress)
+
+  }, [playbackData, id, duration])
 
   const preloadImage = (url: string) => {
     const image = new window.Image();
     image.src = url;
   }
-
-  const handleImageLoaded = () => {
-    setImageLoaded(true);
-  }
-
-  const imageStyle = !imageLoaded ? { display: "none" } : {};
 
   useEffect(() => {
     preloadImage(
@@ -59,6 +69,11 @@ const VideoCard = ({ title, thumbnail_path, duration, upload_date, view_count }:
                   }`}
               />
             </AspectRatio>
+            {Math.round(watchedPercent) > 0 && !watched && (
+              <Tooltip label={`${Math.round(watchedPercent)}% watched`}>
+                <Progress className={classes.progressBar} color="red" size="sm" value={watchedPercent} />
+              </Tooltip>
+            )}
           </div>
         </Card.Section>
 
@@ -70,6 +85,14 @@ const VideoCard = ({ title, thumbnail_path, duration, upload_date, view_count }:
               .replace(/^00:/, "")}
           </Text>
         </Badge>
+
+        {watched && (
+          <Tooltip label="Watched">
+            <ThemeIcon className={classes.watchedIcon} radius="xl" color="green">
+              <IconCircleCheck />
+            </ThemeIcon>
+          </Tooltip>
+        )}
 
         <Text lineClamp={2} size="xl" mt={2}>
           <Tooltip

@@ -65,3 +65,10 @@ export interface Comment {
   video_id: string;
   replies: Comment[];
 }
+
+export interface PlaybackData {
+  id: string;
+  video_id: string;
+  timestamp: number;
+  status: string;
+}
